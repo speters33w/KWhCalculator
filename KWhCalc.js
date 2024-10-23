@@ -31,7 +31,7 @@ function createDropdown(selectElement) {
                         <option value=2.3>Washing Machine (warm wash, cold rinse)</option>
                     </select>
                     
-                    <label for="hours$">Hours:</label>
+                    <label for="hours$">&nbsp;&nbsp;&nbsp;Hours:</label>
                     <select id="hours$">
                         <option value=0>Select</option>
                         <option value=0.25>0.25</option>
