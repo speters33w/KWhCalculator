@@ -1,14 +1,13 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>kWh Calculator</title>
-    <style>
-        .dropdown {
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
-<body>
+let dropdownCount = 1;
+
+function createDropdown(selectElement) {
+    if (selectElement.value !== '') {
+        dropdownCount++;
+        let container = document.getElementById('dropdownContainer');
+        const newDropdown = document.createElement('div');
+        newDropdown.className = 'dropdown';
+        newDropdown.innerHTML = `
+
     <form oninput="consumption.value=Math.floor(appliance.value*100)/100 * Math.floor(parseFloat(useHours.value)*100)/100">
         <div id="dropdownContainer">
             <div class="dropdown">
@@ -35,33 +34,18 @@
                     <option value=0.04>LED bulb (20 W) (75 W incandescent equivalent per bulb) </option>
                     <option value=2.3>Washing Machine (warm wash, cold rinse)</option>
                 </select>
-                
-                <input type="text" id="applianceEdit" oninput="editAppliance()">
 
                 &nbsp;&nbsp;&nbsp;Hours of Use:<input type="number" id="useHours" value="0">
 
                 &nbsp;&nbsp;&nbsp;Consumption (kWh):<output type="number" id="consumption" for="appliance useHours"></output>
-
             </div>
         </div>
     </form>
 
-    <div id="totalConsumption">
-        <div class="text">
-            <form>
-                <input type="button" id="kWhCalc" value="Calculate" onclick="calculate()">
-                &nbsp;&nbsp;&nbsp;Total Consumption (kWh):<output type="number" id="consumptionTotal"></output>
-            </form>
-        </div>
-    </div>
-
-<script src="dropdown.js"></script>
-<script src="total.js"></script>
+                `;
+        
+     container.appendChild(newDropdown);
+    }
+}
 
 
-<!--<script src="https://raw.githubusercontent.com/speters33w/KWhCalculator/refs/heads/master/KWhCalc.js"></script>-->
-
-<p style="text-align: center; font-size: 0.8em;">&copy; 2024 TellCo Europe</p>
-
-</body>
-</html>
