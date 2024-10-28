@@ -8,11 +8,13 @@ function createDropdown(selectElement) {
         newDropdown.className = 'dropdown';
         newDropdown.innerHTML = `
 
-    <form oninput="consumption.value=Math.floor(appliance.value*100)/100 * Math.floor(parseFloat(useHours.value)*100)/100">
+    <form oninput="consumption.value=
+            Math.floor(appliance.value*100) / 100 * Math.floor(parseFloat(useHours.value) * 100) / 100">
         <div id="dropdownContainer">
             <div class="dropdown">
                 <select type ="number" id="appliance" onchange="createDropdown(this)">
                     <option value=0>Select</option>
+                    <option value=0>Other Appliance or Specify Wattage</option>
                     <option value=1.5>Portable heater (1500W)</option>
                     <option value=0.73>Air Conditioner (Window/wall) (8kBTU) (120V)</option>
                     <option value=1.5>Water Heater (Tank Type) (Estimate)</option>
@@ -35,16 +37,23 @@ function createDropdown(selectElement) {
                     <option value=2.3>Washing Machine (warm wash, cold rinse)</option>
                 </select>
 
-                &nbsp;&nbsp;&nbsp;Hours of Use:<input type="number" id="useHours" value="0">
+                &nbsp;&nbsp;&nbsp;Watts:&nbsp;<input type="number" id="applianceEdit" value="updateApplianceEdit(dropdown)" min="0" step="0.1" oninput="editAppliance()">
 
-                &nbsp;&nbsp;&nbsp;Consumption (kWh):<output type="number" id="consumption" for="appliance useHours"></output>
-            </div>
-        </div>
-    </form>
+                &nbsp;&nbsp;&nbsp;Hours of Use:&nbsp;<input type="number" id="useHours" value="0">
+
+                &nbsp;&nbsp;&nbsp;Consumption (kWh):&nbsp;<output type="number" id="consumption" for="appliance useHours"></output>
 
                 `;
         
      container.appendChild(newDropdown);
+    }
+
+    function updateDropdown() {
+        createDropdown(document.getElementById('appliance'));
+        updateApplianceEdit();
+    }
+    function updateApplianceEdit(dropdown) {
+        document.getElementById('appliance').value = dropdown.value;
     }
 }
 

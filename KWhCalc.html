@@ -9,11 +9,13 @@
     </style>
 </head>
 <body>
-    <form oninput="consumption.value=Math.floor(appliance.value*100)/100 * Math.floor(parseFloat(useHours.value)*100)/100">
+    <form oninput="consumption.value =
+            Math.floor(appliance.value*100)/100 * Math.floor(parseFloat(useHours.value) * 100) / 100">
         <div id="dropdownContainer">
             <div class="dropdown">
                 <select type ="number" id="appliance" onchange="createDropdown(this)">
                     <option value=0>Select</option>
+                    <option value=0>Other Appliance or Specify Wattage</option>
                     <option value=1.5>Portable heater (1500W)</option>
                     <option value=0.73>Air Conditioner (Window/wall) (8kBTU) (120V)</option>
                     <option value=1.5>Water Heater (Tank Type) (Estimate)</option>
@@ -35,12 +37,12 @@
                     <option value=0.04>LED bulb (20 W) (75 W incandescent equivalent per bulb) </option>
                     <option value=2.3>Washing Machine (warm wash, cold rinse)</option>
                 </select>
-                
-                <input type="text" id="applianceEdit" oninput="editAppliance()">
 
-                &nbsp;&nbsp;&nbsp;Hours of Use:<input type="number" id="useHours" value="0">
+                &nbsp;&nbsp;&nbsp;Watts:&nbsp;<input type="number" id="applianceEdit" value="updateApplianceEdit(dropdown)" min="0" step="0.1" oninput="editAppliance()">
 
-                &nbsp;&nbsp;&nbsp;Consumption (kWh):<output type="number" id="consumption" for="appliance useHours"></output>
+                &nbsp;&nbsp;&nbsp;Hours of Use:&nbsp;<input type="number" id="useHours" value="0">
+
+                &nbsp;&nbsp;&nbsp;Consumption (kWh):&nbsp;<output type="number" id="consumption" for="appliance useHours"></output>
 
             </div>
         </div>
@@ -55,11 +57,11 @@
         </div>
     </div>
 
-<script src="dropdown.js"></script>
-<script src="total.js"></script>
+    <script src="dropdown.js"></script>
+    <script src="total.js"></script>
+    <script>
 
-
-<!--<script src="https://raw.githubusercontent.com/speters33w/KWhCalculator/refs/heads/master/KWhCalc.js"></script>-->
+    </script>
 
 <p style="text-align: center; font-size: 0.8em;">&copy; 2024 TellCo Europe</p>
 
