@@ -1,11 +1,16 @@
 let dropdownCount = 1;
 
 function createDropdown(dropdown) {
-    let dropdownCount = parseInt(dropdown.id.replace('appliance', '')) || 1;
-    let container = document.getElementById('dropdownContainer');
-    let newDropdown = document.createElement('div');
-    newDropdown.className = 'dropdown';
-    newDropdown.innerHTML = `
+    let dropdowns = document.getElementsByClassName('dropdown');
+    let lastDropdown = dropdowns[dropdowns.length - 1];
+    let applianceValue = lastDropdown.querySelector('#appliance').value;
+
+    if (applianceValue !== '0') {
+        let dropdownCount = parseInt(dropdown.id.replace('appliance', '')) || 1;
+        let container = document.getElementById('dropdownContainer');
+        let newDropdown = document.createElement('div');
+        newDropdown.className = 'dropdown';
+        newDropdown.innerHTML = `
 
     <form oninput="consumption.value=
             Math.floor(appliance.value*100) / 100 * Math.floor(parseFloat(useHours.value) * 100) / 100">
@@ -42,18 +47,9 @@ function createDropdown(dropdown) {
 
                 &nbsp;&nbsp;&nbsp;Consumption (kWh):&nbsp;<output type="number" id="consumption" for="appliance useHours"></output>
 
-                `;
-    container.appendChild(newDropdown);
-    calculate(); // Call the calculate function to update the total consumption
-
-
-    function updateDropdown() {
-        createDropdown(document.getElementById('appliance'));
-        updateApplianceEdit();
-    }
-
-    function updateApplianceEdit(dropdown) {
-        document.getElementById('appliance').value = dropdown.value;
+                        `;
+        container.appendChild(newDropdown);
+        calculate(); // Call the calculate function to update the total consumption
     }
 }
 
