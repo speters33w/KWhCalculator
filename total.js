@@ -10,5 +10,3 @@ function calculate() {
     console.log(consumptionTotal.toString());
     document.getElementById("consumptionTotal").innerHTML = consumptionTotal.toString();
 }
-
-

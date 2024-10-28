@@ -40,7 +40,7 @@
 
                 &nbsp;&nbsp;&nbsp;Watts:&nbsp;<input type="number" id="applianceEdit" value="updateApplianceEdit(dropdown)" min="0" step="0.1" oninput="editAppliance()">
 
-                &nbsp;&nbsp;&nbsp;Hours of Use:&nbsp;<input type="number" id="useHours" value="0">
+                &nbsp;&nbsp;&nbsp;Hours of Use:&nbsp;<input type="number" id="useHours" value="0" min="0" step="0.25">
 
                 &nbsp;&nbsp;&nbsp;Consumption (kWh):&nbsp;<output type="number" id="consumption" for="appliance useHours"></output>
 
@@ -52,7 +52,7 @@
         <div class="text">
             <form>
                 <input type="button" id="kWhCalc" value="Calculate" onclick="calculate()">
-                &nbsp;&nbsp;&nbsp;Total Consumption (kWh):<output type="number" id="consumptionTotal"></output>
+                &nbsp;&nbsp;&nbsp;Total Consumption (kWh):&nbsp;<output type="number" id="consumptionTotal"></output>
             </form>
         </div>
     </div>
