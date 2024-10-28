@@ -36,7 +36,7 @@ function createDropdown(dropdown) {
                     <option value=2.3>Washing Machine (warm wash, cold rinse)</option>
                 </select>
 
-                &nbsp;&nbsp;&nbsp;Watts:&nbsp;<input type="number" id="applianceEdit" value="updateApplianceEdit(dropdown)" min="0" step="0.1" oninput="editAppliance()">
+                &nbsp;&nbsp;&nbsp;Watts:&nbsp;<input type="number" id="applianceEdit" value="updateApplianceEdit(dropdown)" min="0" step="100" oninput="editAppliance()">
 
                 &nbsp;&nbsp;&nbsp;Hours of Use:&nbsp;<input type="number" id="useHours" value="0" min="0" step="0.25">
 
